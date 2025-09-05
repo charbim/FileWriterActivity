@@ -53,6 +53,14 @@ public class MyFileWriter {
     }
 
     public static void hiddenFolderRegularFile() {
-        
+        String dir = ".spoopy";
+        String file = "mystery.txt"
+        try {
+            Files.createDirectory(Paths.get(dir));
+            Files.createFile(Paths.get(file));
+            // Files.move(this, dir, idk?????)
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
