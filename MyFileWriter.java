@@ -4,8 +4,9 @@ import java.nio.charset.StandardCharsets;
 
 public class MyFileWriter {
     public static void main(String[] args) {
-        generateHiddenFile();
+        hiddenFolderRegularFile();
     }
+
     public static void fileTest() {
         String data = "Hello, World!";
         String fileName1 = "example.txt";
@@ -52,24 +53,24 @@ public class MyFileWriter {
 
     public static void generateHiddenFile() {
         String data = "super secret file";
-        try { 
+        try {
             Files.write(Paths.get(".wow.txt"), data.getBytes(StandardCharsets.UTF_8));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-}
 
-//     public static void hiddenFolderRegularFile() {
-//         String dir = ".spoopy";
-//         String file = "mystery.txt";
-//         try {
-//             Files.createDirectory(Paths.get(dir));
-//             Files.createFile(Paths.get(file));
-//             // Files.move(this, dir, idk?????)
-//         } catch (IOException e) {
-//             e.printStackTrace();
-//         }
-//     }
-// }
+    public static void hiddenFolderRegularFile() {
+        String dir = ".spoopy6";
+        String file = "mystery1.txt";
+        Path insideSpoopy = Paths.get(dir + "/mystery1.txt");
+        try {
+            Files.createDirectory(Paths.get(dir));
+            Files.createFile(Paths.get(file));
+            Files.move(Paths.get(file), insideSpoopy, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
