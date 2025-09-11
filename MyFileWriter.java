@@ -1,10 +1,12 @@
 import java.io.*;
 import java.nio.file.*;
 import java.nio.charset.StandardCharsets;
+import java.awt.Desktop;
+import java.net.URI;
 
 public class MyFileWriter {
     public static void main(String[] args) {
-        hiddenFolderRegularFile();
+        makeNewFolder();
     }
 
     public static void fileTest() {
@@ -73,4 +75,23 @@ public class MyFileWriter {
             e.printStackTrace();
         }
     }
+
+    public static void makeNewFolder() {
+        File dir = new File("mydirectory");
+        if (!dir.exists()) {
+            dir.mkdir();
+        }
+        try {
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+            } else {
+                System.out.println(
+                        "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+            }
+        } catch (Exception e) {
+            System.out.println("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+            e.printStackTrace();
+        }
+    }
+
 }
