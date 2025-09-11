@@ -4,6 +4,7 @@ import java.nio.charset.StandardCharsets;
 
 public class MyFileWriter {
     public static void main(String[] args) {
+        String data = "lauren wrote this and changed the message!";
         hiddenFolderRegularFile();
     }
 
